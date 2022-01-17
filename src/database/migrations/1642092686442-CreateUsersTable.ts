@@ -8,8 +8,10 @@ export default class CreateProfile1600016576988 implements MigrationInterface {
         columns: [
           {
             name: "id",
-            type: "int",
+            type: "integer",
             isPrimary: true,
+            isGenerated: true,
+            generationStrategy: 'increment',
           },
           {
             name: "email",
@@ -24,7 +26,6 @@ export default class CreateProfile1600016576988 implements MigrationInterface {
       })
     );
   }
-
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable("users");
   

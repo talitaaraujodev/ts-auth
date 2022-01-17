@@ -11,14 +11,14 @@ class UserController {
     }
     async store(req: Request, res: Response) {
         const repository = getRepository(User)
-        const { id, email, password } = req.body;
+        const { email, password } = req.body;
         console.log(req.body);
 
         const userExists = await repository.findOne({ where: { email } });
         if (userExists) {
             res.status(409);
         }
-        const user = repository.create({ id, email, password });
+        const user = repository.create({ email, password });
         await repository.save(user)
         return res.status(201).json(user);
     }

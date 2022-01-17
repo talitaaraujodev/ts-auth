@@ -3,7 +3,7 @@ import bcryptjs from"bcryptjs";
 
 @Entity("users")
  class User {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number;
     @Column()
     email: string;
